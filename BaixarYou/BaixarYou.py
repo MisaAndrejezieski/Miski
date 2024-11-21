@@ -40,6 +40,7 @@ def close_program():
 
 # Função principal
 def main():
+    global root, url_entry, progress_label
     root = tk.Tk()
     root.title("Downloader de Vídeos")
 
@@ -63,7 +64,6 @@ def main():
 
     # Elementos da interface
     ttk.Label(root, text="Cole aqui sua URL:", style='TLabel').pack(pady=20)
-    global url_entry
     url_entry = ttk.Entry(root, width=50)
     url_entry.pack(pady=5)
 
@@ -73,7 +73,6 @@ def main():
     close_button = ttk.Button(root, text="Fechar Programa", command=close_program, style='TButton.Red.TButton')
     close_button.pack(pady=10)
 
-    global progress_label
     progress_label = ttk.Label(root, text="", style='TLabel')
     progress_label.pack(pady=5)
 
