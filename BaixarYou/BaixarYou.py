@@ -2,6 +2,25 @@ import yt_dlp
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
+import os
+
+def download_video(url):
+    output_dir = os.path.join(os.path.dirname(__file__), 'videos')
+    os.makedirs(output_dir, exist_ok=True)
+    
+    ydl_opts = {
+        'format': 'best',
+        'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
+    }
+    try:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(url, download=True)
+            title = info_dict.get('title', 'Unknown')
+            thumbnail_url = info_dict.get('thumbnail', 'No thumbnail available')
+        return title, thumbnail_url
+    except Exception as e:
+        return None, str(e)
+
 
 # Função para download do vídeo
 def download_video(url):
