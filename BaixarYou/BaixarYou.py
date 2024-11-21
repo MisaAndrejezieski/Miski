@@ -45,6 +45,7 @@ def close_program():
 # Função principal
 def main():
     global root, url_entry, progress_label
+
     root = tk.Tk()
     root.title("Downloader de Vídeos")
 
