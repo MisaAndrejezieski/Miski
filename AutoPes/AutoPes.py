@@ -162,9 +162,10 @@ class InterfaceGrafica:
     def run(self):
         self.root.mainloop()
 
+def main():
+    automacao = Automacao()
+    interface = InterfaceGrafica(automacao)
+    interface.run()
+
 if __name__ == "__main__":
-    def main():
-        automacao = Automacao()
-        interface = InterfaceGrafica(automacao)
-        interface.run()
     main()

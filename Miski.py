@@ -1,70 +1,48 @@
-from rembg import remove
-from PIL import Image
 import tkinter as tk
-from tkinter import filedialog, messagebox
+from tkinter import ttk
 
-# Função para processar a imagem
-def process_image(input_path, output_path):
-    try:
-        img = Image.open(input_path)
-        output = remove(img)
-        output.save(output_path)
-        return "Imagem processada e salva com sucesso!"
-    except Exception as e:
-        return f"Ocorreu um erro: {e}"
+# Funções principais para iniciar cada projetinho
+def iniciar_auto_pes():
+    import AutoPes.AutoPes as AutoPes
+    AutoPes.main()
 
-# Função para procurar o arquivo de entrada
-def browse_input():
-    input_path = filedialog.askopenfilename()
-    if input_path:
-        entry_input.delete(0, tk.END)
-        entry_input.insert(0, input_path)
+def iniciar_remove_fundo():
+    import RemoveFundo.RemoveFundo as RemoveFundo
+    RemoveFundo.main()
 
-# Função para procurar o arquivo de saída
-def browse_output():
-    output_path = filedialog.asksaveasfilename(defaultextension=".png", filetypes=[("PNG files", "*.png"), ("All files", "*.*")])
-    if output_path:
-        entry_output.delete(0, tk.END)
-        entry_output.insert(0, output_path)
+def iniciar_baixar_you():
+    import BaixarYou.BaixarYou as BaixarYou
+    BaixarYou.main()
 
-# Função para iniciar o processo
-def start_process():
-    input_path = entry_input.get()
-    output_path = entry_output.get()
-    if not input_path or not output_path:
-        messagebox.showwarning("Atenção", "Por favor, selecione os arquivos de entrada e saída.")
-        return
-    message = process_image(input_path, output_path)
-    messagebox.showinfo("Resultado", message)
+# Função para fechar o programa
+def fechar_programa():
+    root.quit()
 
-# Função principal
-def main():
-    app = tk.Tk()
-    app.title("Remove Fundo de Imagem")
-    app.configure(bg='#0000ff')  # Configura o fundo em tom azul
+# Configuração da interface gráfica principal
+root = tk.Tk()
+root.title("Miski - Projeto Principal")
+root.geometry('600x400')
+root.configure(bg='#282c34')
 
-    # Estilos dos widgets
-    bg_color = '#ff3399'          # Rosa para os rótulos
-    fg_color = '#333'             # Cor do texto
-    button_color = '#add8e6'      # Azul claro para os botões
-    entry_bg_color = '#fff'       # Branco para o fundo das entradas
-    entry_fg_color = '#333'       # Cor do texto das entradas
+style = ttk.Style()
+style.theme_use('clam')
 
-    # Elementos da interface
-    tk.Label(app, text="Arquivo de entrada:", bg=bg_color, fg=fg_color).grid(row=0, column=0, padx=10, pady=10)
-    entry_input = tk.Entry(app, width=50, bg=entry_bg_color, fg=entry_fg_color)
-    entry_input.grid(row=0, column=1, padx=10, pady=10)
-    tk.Button(app, text="Procurar", command=browse_input, bg=button_color, fg=fg_color).grid(row=0, column=2, padx=10, pady=10)
+style.configure('TButton', background='#4CAF50', foreground='#ffffff', font=('Helvetica', 12, 'bold'))
+style.map('TButton', background=[('active', '#56b6c2')])
+style.configure('TButton.Red.TButton', background='#f44336', foreground='#ffffff', font=('Helvetica', 12, 'bold'))
+style.map('TButton.Red.TButton', background=[('active', '#d32f2f')])
+style.configure('TLabel', background='#282c34', foreground='#61afef', font=('Helvetica', 10))
+style.configure('TEntry', font=('Helvetica', 10))
 
-    tk.Label(app, text="Arquivo de saída:", bg=bg_color, fg=fg_color).grid(row=1, column=0, padx=10, pady=10)
-    entry_output = tk.Entry(app, width=50, bg=entry_bg_color, fg=entry_fg_color)
-    entry_output.grid(row=1, column=1, padx=10, pady=10)
-    tk.Button(app, text="Salvar como", command=browse_output, bg=button_color, fg=fg_color).grid(row=1, column=2, padx=10, pady=10)
+# Elementos da interface principal
+ttk.Label(root, text="Bem-vindo ao Projeto Miski", style='TLabel').pack(pady=20)
 
-    tk.Button(app, text="Iniciar", command=start_process, bg=button_color, fg=fg_color).grid(row=2, column=1, pady=20)
+# Botões para abrir cada projetinho
+ttk.Button(root, text="Iniciar AutoPes", command=iniciar_auto_pes, style='TButton').pack(pady=10)
+ttk.Button(root, text="Iniciar RemoveFundo", command=iniciar_remove_fundo, style='TButton').pack(pady=10)
+ttk.Button(root, text="Iniciar BaixarYou", command=iniciar_baixar_you, style='TButton').pack(pady=10)
 
-    # Iniciar a interface gráfica
-    app.mainloop()
+# Botão para fechar o programa
+ttk.Button(root, text="Fechar Programa", command=fechar_programa, style='TButton.Red.TButton').pack(pady=20)
 
-if __name__ == "__main__":
-    main()
+root.mainloop()
