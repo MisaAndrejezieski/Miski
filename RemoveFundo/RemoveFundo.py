@@ -2,12 +2,18 @@ from rembg import remove
 from PIL import Image
 import tkinter as tk
 from tkinter import filedialog, messagebox
+import os
 
 # Função para processar a imagem
 def process_image(input_path, output_path):
     try:
         img = Image.open(input_path)
         output = remove(img)
+        
+        output_dir = os.path.join(os.path.dirname(__file__), 'imagens_processadas')
+        os.makedirs(output_dir, exist_ok=True)
+        output_path = os.path.join(output_dir, os.path.basename(output_path))
+        
         output.save(output_path)
         return "Imagem processada e salva com sucesso!"
     except Exception as e:
@@ -65,8 +71,7 @@ def main():
 
     tk.Button(app, text="Iniciar", command=start_process, bg=button_color, fg=fg_color).grid(row=2, column=1, pady=20)
 
-    # Iniciar a interface gráfica
-    app.mainloop()
+    return app
 
 if __name__ == "__main__":
     main()
