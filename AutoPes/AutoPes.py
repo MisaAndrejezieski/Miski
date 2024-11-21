@@ -19,12 +19,14 @@ logging.basicConfig(
 )
 
 # Lista de temas e perguntas
-temas_en = [ "technology", "health", "education", "sports", "politics", 
-            "economy", "science", "art", "music", "literature", "history",
-            "geography", "philosophy", "psychology", "sociology", "anthropology",
-            "astronomy", "biology", "chemistry", "physics", "mathematics", "engineering",
-            "medicine", "law", "administration", "marketing", "finance", "architecture", 
-            "design", "fashion", "gastronomy" ]
+temas_en = [
+    "technology", "health", "education", "sports", "politics", "economy",
+    "science", "art", "music", "literature", "history", "geography",
+    "philosophy", "psychology", "sociology", "anthropology", "astronomy",
+    "biology", "chemistry", "physics", "mathematics", "engineering",
+    "medicine", "law", "administration", "marketing", "finance",
+    "architecture", "design", "fashion", "gastronomy"
+]
 
 perguntas_en = [
     "What is {tema}?", "What are the latest news in {tema}?",
