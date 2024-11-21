@@ -35,6 +35,17 @@ def iniciar_baixar_you():
     voltar_button = ttk.Button(baixar_you_root, text="Voltar", command=voltar)
     voltar_button.pack(pady=10)
 
+def iniciar_gerenciador_tarefas():
+    def voltar():
+        gerenciador_tarefas_root.destroy()
+        root.deiconify()
+
+    root.withdraw()
+    import GerenciadorTarefas.GerenciadorTarefas as GerenciadorTarefas
+    gerenciador_tarefas_root = GerenciadorTarefas.main()
+    voltar_button = ttk.Button(gerenciador_tarefas_root, text="Voltar", command=voltar)
+    voltar_button.pack(pady=10)
+
 # Função para fechar o programa
 def fechar_programa():
     root.quit()
@@ -62,6 +73,7 @@ ttk.Label(root, text="Bem-vindo ao Projeto Miski", style='TLabel').pack(pady=20)
 ttk.Button(root, text="Iniciar AutoPes", command=iniciar_auto_pes, style='TButton').pack(pady=10)
 ttk.Button(root, text="Iniciar RemoveFundo", command=iniciar_remove_fundo, style='TButton').pack(pady=10)
 ttk.Button(root, text="Iniciar BaixarYou", command=iniciar_baixar_you, style='TButton').pack(pady=10)
+ttk.Button(root, text="Iniciar Gerenciador de Tarefas", command=iniciar_gerenciador_tarefas, style='TButton').pack(pady=10)
 
 # Botão para fechar o programa
 ttk.Button(root, text="Fechar Programa", command=fechar_programa, style='TButton.Red.TButton').pack(pady=20)
