@@ -3,16 +3,37 @@ from tkinter import ttk
 
 # Funções principais para iniciar cada projetinho
 def iniciar_auto_pes():
+    def voltar():
+        auto_pes_root.destroy()
+        root.deiconify()
+
+    root.withdraw()
     import AutoPes.AutoPes as AutoPes
-    AutoPes.main()
+    auto_pes_root = AutoPes.main()
+    voltar_button = ttk.Button(auto_pes_root, text="Voltar", command=voltar)
+    voltar_button.pack(pady=10)
 
 def iniciar_remove_fundo():
+    def voltar():
+        remove_fundo_root.destroy()
+        root.deiconify()
+
+    root.withdraw()
     import RemoveFundo.RemoveFundo as RemoveFundo
-    RemoveFundo.main()
+    remove_fundo_root = RemoveFundo.main()
+    voltar_button = ttk.Button(remove_fundo_root, text="Voltar", command=voltar)
+    voltar_button.pack(pady=10)
 
 def iniciar_baixar_you():
+    def voltar():
+        baixar_you_root.destroy()
+        root.deiconify()
+
+    root.withdraw()
     import BaixarYou.BaixarYou as BaixarYou
-    BaixarYou.main()
+    baixar_you_root = BaixarYou.main()
+    voltar_button = ttk.Button(baixar_you_root, text="Voltar", command=voltar)
+    voltar_button.pack(pady=10)
 
 # Função para fechar o programa
 def fechar_programa():
