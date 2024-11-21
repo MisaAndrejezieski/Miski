@@ -96,7 +96,7 @@ class Automacao:
             return False
 
     async def realizar_pesquisa(self, pesquisa):
-        for tentativa in range(3):  # Tentar até 3 vezes
+        for tentativa em range(3):  # Tentar até 3 vezes
             try:
                 pyautogui.hotkey('ctrl', 't')
                 pyautogui.write(pesquisa)
@@ -133,23 +133,23 @@ class InterfaceGrafica:
         style.configure('TEntry', font=('Helvetica', 12), padding=5)
 
         # Elementos da interface
-        ttk.Label(self.root, text="Número de Temas:", style='TLabel').pack(pady=10)
+        ttk.Label(self.root, text="Número de Temas:", style='TLabel').grid(row=0, column=0, padx=10, pady=10)
         self.num_temas_entry = ttk.Entry(self.root, width=20)
-        self.num_temas_entry.pack(pady=5)
+        self.num_temas_entry.grid(row=0, column=1, padx=10, pady=5)
         self.num_temas_entry.insert(0, "6")
 
-        ttk.Label(self.root, text="Número de Perguntas por Tema:", style='TLabel').pack(pady=10)
+        ttk.Label(self.root, text="Número de Perguntas por Tema:", style='TLabel').grid(row=1, column=0, padx=10, pady=10)
         self.num_perguntas_entry = ttk.Entry(self.root, width=20)
-        self.num_perguntas_entry.pack(pady=5)
+        self.num_perguntas_entry.grid(row=1, column=1, padx=10, pady=5)
         self.num_perguntas_entry.insert(0, "6")
 
         # Botão para iniciar a automação
         start_button = ttk.Button(self.root, text="Iniciar Automação", command=self.iniciar_automacao_handler)
-        start_button.pack(pady=20)
+        start_button.grid(row=2, column=0, columnspan=2, pady=20)
 
         # Botão para fechar a aplicação
         close_button = ttk.Button(self.root, text="Fechar", command=self.root.quit, style='Red.TButton')
-        close_button.pack(pady=10)
+        close_button.grid(row=3, column=0, columnspan=2, pady=10)
 
     def iniciar_automacao_handler(self):
         try:
