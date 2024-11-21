@@ -5,3 +5,10 @@
 2024-11-21 06:42:28,053 - INFO - Navegador Edge aberto com sucesso.
 2024-11-21 06:42:38,482 - INFO - Pesquisa realizada: Who are the leading experts in architecture?
 2024-11-21 06:42:43,493 - INFO - Automação concluída com sucesso.
+2024-11-21 07:10:31,118 - DEBUG - Using proactor: IocpProactor
+2024-11-21 07:10:31,118 - DEBUG - Starting new HTTPS connection (1): www.google.com:443
+2024-11-21 07:10:32,618 - DEBUG - https://www.google.com:443 "GET / HTTP/11" 200 None
+2024-11-21 07:10:32,634 - INFO - Conectividade com https://www.google.com verificada.
+2024-11-21 07:10:34,957 - INFO - Navegador Edge aberto com sucesso.
+2024-11-21 07:10:45,374 - INFO - Pesquisa realizada: How does psychology impact society?
+2024-11-21 07:10:50,381 - INFO - Automação concluída com sucesso.
