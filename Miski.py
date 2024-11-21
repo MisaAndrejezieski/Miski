@@ -10,8 +10,7 @@ def iniciar_auto_pes():
     root.withdraw()
     import AutoPes.AutoPes as AutoPes
     auto_pes_root = AutoPes.main()
-    voltar_button = ttk.Button(auto_pes_root, text="Voltar", command=voltar)
-    voltar_button.pack(pady=10)
+    ttk.Button(auto_pes_root, text="Voltar", command=voltar).pack(pady=10)
 
 def iniciar_remove_fundo():
     def voltar():
@@ -21,8 +20,7 @@ def iniciar_remove_fundo():
     root.withdraw()
     import RemoveFundo.RemoveFundo as RemoveFundo
     remove_fundo_root = RemoveFundo.main()
-    voltar_button = ttk.Button(remove_fundo_root, text="Voltar", command=voltar)
-    voltar_button.pack(pady=10)
+    ttk.Button(remove_fundo_root, text="Voltar", command=voltar).pack(pady=10)
 
 def iniciar_baixar_you():
     def voltar():
@@ -32,8 +30,7 @@ def iniciar_baixar_you():
     root.withdraw()
     import BaixarYou.BaixarYou as BaixarYou
     baixar_you_root = BaixarYou.main()
-    voltar_button = ttk.Button(baixar_you_root, text="Voltar", command=voltar)
-    voltar_button.pack(pady=10)
+    ttk.Button(baixar_you_root, text="Voltar", command=voltar).pack(pady=10)
 
 def iniciar_gerenciador_tarefas():
     def voltar():
@@ -43,8 +40,7 @@ def iniciar_gerenciador_tarefas():
     root.withdraw()
     import GerenciadorTarefas.GerenciadorTarefas as GerenciadorTarefas
     gerenciador_tarefas_root = GerenciadorTarefas.main()
-    voltar_button = ttk.Button(gerenciador_tarefas_root, text="Voltar", command=voltar)
-    voltar_button.pack(pady=10)
+    ttk.Button(gerenciador_tarefas_root, text="Voltar", command=voltar).pack(pady=10)
 
 # Função para fechar o programa
 def fechar_programa():
