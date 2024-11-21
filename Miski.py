@@ -10,7 +10,7 @@ def iniciar_auto_pes():
     root.withdraw()
     import AutoPes.AutoPes as AutoPes
     auto_pes_root = AutoPes.main()
-    ttk.Button(auto_pes_root, text="Voltar", command=voltar).grid(row=5, column=0, pady=10)
+    ttk.Button(auto_pes_root, text="Voltar", command=voltar).pack(pady=10)
 
 def iniciar_remove_fundo():
     def voltar():
@@ -20,7 +20,7 @@ def iniciar_remove_fundo():
     root.withdraw()
     import RemoveFundo.RemoveFundo as RemoveFundo
     remove_fundo_root = RemoveFundo.main()
-    ttk.Button(remove_fundo_root, text="Voltar", command=voltar).grid(row=5, column=0, pady=10)
+    ttk.Button(remove_fundo_root, text="Voltar", command=voltar).pack(pady=10)
 
 def iniciar_baixar_you():
     def voltar():
@@ -30,7 +30,7 @@ def iniciar_baixar_you():
     root.withdraw()
     import BaixarYou.BaixarYou as BaixarYou
     baixar_you_root = BaixarYou.main()
-    ttk.Button(baixar_you_root, text="Voltar", command=voltar).grid(row=5, column=0, pady=10)
+    ttk.Button(baixar_you_root, text="Voltar", command=voltar).pack(pady=10)
 
 def iniciar_gerenciador_tarefas():
     def voltar():
@@ -40,7 +40,7 @@ def iniciar_gerenciador_tarefas():
     root.withdraw()
     import GerenciadorTarefas.GerenciadorTarefas as GerenciadorTarefas
     gerenciador_tarefas_root = GerenciadorTarefas.main()
-    ttk.Button(gerenciador_tarefas_root, text="Voltar", command=voltar).grid(row=5, column=0, pady=10)
+    ttk.Button(gerenciador_tarefas_root, text="Voltar", command=voltar).pack(pady=10)
 
 # Função para fechar o programa
 def fechar_programa():
@@ -63,15 +63,15 @@ style.configure('TLabel', background='#282c34', foreground='#61afef', font=('Hel
 style.configure('TEntry', font=('Helvetica', 10))
 
 # Elementos da interface principal
-ttk.Label(root, text="Bem-vindo ao Projeto Miski", style='TLabel').grid(row=0, column=0, padx=10, pady=10, columnspan=2)
+ttk.Label(root, text="Bem-vindo ao Projeto Miski", style='TLabel').pack(pady=20)
 
 # Botões para abrir cada projetinho
-ttk.Button(root, text="Iniciar AutoPes", command=iniciar_auto_pes, style='TButton').grid(row=1, column=0, padx=10, pady=10)
-ttk.Button(root, text="Iniciar RemoveFundo", command=iniciar_remove_fundo, style='TButton').grid(row=1, column=1, padx=10, pady=10)
-ttk.Button(root, text="Iniciar BaixarYou", command=iniciar_baixar_you, style='TButton').grid(row=2, column=0, padx=10, pady=10)
-ttk.Button(root, text="Iniciar Gerenciador de Tarefas", command=iniciar_gerenciador_tarefas, style='TButton').grid(row=2, column=1, padx=10, pady=10)
+ttk.Button(root, text="Iniciar AutoPes", command=iniciar_auto_pes, style='TButton').pack(pady=10)
+ttk.Button(root, text="Iniciar RemoveFundo", command=iniciar_remove_fundo, style='TButton').pack(pady=10)
+ttk.Button(root, text="Iniciar BaixarYou", command=iniciar_baixar_you, style='TButton').pack(pady=10)
+ttk.Button(root, text="Iniciar Gerenciador de Tarefas", command=iniciar_gerenciador_tarefas, style='TButton').pack(pady=10)
 
 # Botão para fechar o programa
-ttk.Button(root, text="Fechar Programa", command=fechar_programa, style='TButton.Red.TButton').grid(row=3, column=0, columnspan=2, pady=20)
+ttk.Button(root, text="Fechar Programa", command=fechar_programa, style='TButton.Red.TButton').pack(pady=20)
 
 root.mainloop()
