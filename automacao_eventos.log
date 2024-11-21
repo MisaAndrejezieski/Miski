@@ -1,0 +1,7 @@
+2024-11-21 06:42:25,499 - DEBUG - Using proactor: IocpProactor
+2024-11-21 06:42:25,499 - DEBUG - Starting new HTTPS connection (1): www.google.com:443
+2024-11-21 06:42:25,733 - DEBUG - https://www.google.com:443 "GET / HTTP/11" 200 None
+2024-11-21 06:42:25,733 - INFO - Conectividade com https://www.google.com verificada.
+2024-11-21 06:42:28,053 - INFO - Navegador Edge aberto com sucesso.
+2024-11-21 06:42:38,482 - INFO - Pesquisa realizada: Who are the leading experts in architecture?
+2024-11-21 06:42:43,493 - INFO - Automação concluída com sucesso.
