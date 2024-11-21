@@ -11,6 +11,21 @@ import os
 import csv
 import asyncio
 
+class Automacao:
+    # (resto do código)
+    def salvar_resultados(self):
+        output_dir = os.path.join(os.path.dirname(__file__), 'resultados')
+        os.makedirs(output_dir, exist_ok=True)
+        file_path = os.path.join(output_dir, 'resultados_pesquisas.csv')
+
+        file_exists = os.path.isfile(file_path)
+        with open(file_path, 'a', newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            if not file_exists:
+                writer.writerow(["Tema", "Pergunta", "Status"])
+            for resultado in self.resultados:
+                writer.writerow([resultado['tema'], resultado['pergunta'], resultado['status']])
+
 # Configuração de logging
 logging.basicConfig(
     filename='automacao_eventos.log',
