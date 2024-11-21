@@ -4,27 +4,11 @@ import random
 import logging
 import requests
 import tkinter as tk
-from tkinter import messagebox, PhotoImage
-from tkinter import ttk
+from tkinter import messagebox, ttk
 import threading
 import os
 import csv
 import asyncio
-
-class Automacao:
-    # (resto do código)
-    def salvar_resultados(self):
-        output_dir = os.path.join(os.path.dirname(__file__), 'resultados')
-        os.makedirs(output_dir, exist_ok=True)
-        file_path = os.path.join(output_dir, 'resultados_pesquisas.csv')
-
-        file_exists = os.path.isfile(file_path)
-        with open(file_path, 'a', newline='', encoding='utf-8') as file:
-            writer = csv.writer(file)
-            if not file_exists:
-                writer.writerow(["Tema", "Pergunta", "Status"])
-            for resultado in self.resultados:
-                writer.writerow([resultado['tema'], resultado['pergunta'], resultado['status']])
 
 # Configuração de logging
 logging.basicConfig(
@@ -58,8 +42,12 @@ class Automacao:
         return random.sample([p.format(tema=tema) for p in perguntas_en], n)
 
     def salvar_resultados(self):
-        file_exists = os.path.isfile('resultados_pesquisas.csv')
-        with open('resultados_pesquisas.csv', 'a', newline='', encoding='utf-8') as file:
+        output_dir = os.path.join(os.path.dirname(__file__), 'resultados')
+        os.makedirs(output_dir, exist_ok=True)
+        file_path = os.path.join(output_dir, 'resultados_pesquisas.csv')
+
+        file_exists = os.path.isfile(file_path)
+        with open(file_path, 'a', newline='', encoding='utf-8') as file:
             writer = csv.writer(file)
             if not file_exists:
                 writer.writerow(["Tema", "Pergunta", "Status"])
@@ -181,6 +169,7 @@ def main():
     automacao = Automacao()
     interface = InterfaceGrafica(automacao)
     interface.run()
+    return interface.root
 
 if __name__ == "__main__":
     main()
