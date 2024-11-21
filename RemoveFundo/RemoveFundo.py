@@ -39,6 +39,8 @@ def start_process():
 
 # Função principal
 def main():
+    global entry_input, entry_output
+
     app = tk.Tk()
     app.title("Remove Fundo de Imagem")
     app.configure(bg='#0000ff')  # Configura o fundo em tom azul
